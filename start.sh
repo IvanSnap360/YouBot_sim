@@ -15,7 +15,7 @@ if [[ $REPLY =~ ^[Yy]$ ]]
 then
     cd build
      
-    ./ManipControl
+    ./You_bot
 
     cd ..
 fi
