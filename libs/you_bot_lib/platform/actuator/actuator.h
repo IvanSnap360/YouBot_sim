@@ -1,12 +1,11 @@
 #ifndef __ACTUATOR_H__
 #define __ACTUATOR_H__
-extern "C"
-{
-#include "libs/sim_lib/extApi.h"
-#include "libs/sim_lib/extApiPlatform.h"
-#include "libs/sim_lib/simConst.h"
-#include "libs/sim_lib/simConfig.h"
-}
+
+#include "../../../sim_lib/extApi.h"
+#include "../../../sim_lib/extApiPlatform.h"
+#include "../../../sim_lib/simConst.h"
+#include "../../../sim_lib/simConfig.h"
+
 
 #include "../../../help_lib/print_lib.h"
 class ACTUATOR

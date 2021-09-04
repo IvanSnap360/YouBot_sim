@@ -14,8 +14,7 @@ extern "C"
 #include <X11/keysymdef.h>
 
 #include "libs/help_lib/print_lib.h"
-
-
+#include "libs/you_bot_lib/you_bot.h"
 
 unsigned long long real_time_ms;
 
@@ -23,7 +22,7 @@ Display *dpy = XOpenDisplay(":0");
 using namespace std::chrono;
 
 int clientID;
-
+YOU_BOT kbot;
 void setup()
 {
     
@@ -31,7 +30,7 @@ void setup()
 
 void loop()
 {   
-    
+    kbot.platform.trigger();
 }
 
 //#################################################################################################################
@@ -61,7 +60,7 @@ int main()
     print("Client ID: ");
     println(clientID);
 
-    
+    kbot.init(clientID);
 
     simxStartSimulation(clientID, simx_opmode_oneshot);
     println("########## START SIM ##########");

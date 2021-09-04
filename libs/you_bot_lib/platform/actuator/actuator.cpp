@@ -12,7 +12,8 @@ void ACTUATOR::init(const char * sim_name, int clientID)
     
     simxGetObjectHandle(clientID,sim_name,&_handle,simx_opmode_blocking);
     _clientID = clientID;
-    INFO_PRINT("Initialization" << sim_name << Green << "Done" << Reset);
+    INFO_PRINT("Initialization "  << Bold << Cyan << sim_name << Green << " Done "  << Reset);
+    setAngularVelocity(0.0);
 }
 
 void ACTUATOR::setAngularVelocity(double angular_velocity)

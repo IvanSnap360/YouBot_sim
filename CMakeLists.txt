@@ -27,6 +27,8 @@ add_executable (You_bot
                 main.cpp
                 libs/sim_lib/extApi.c 
                 libs/sim_lib/extApiPlatform.c
+                libs/you_bot_lib/platform/actuator/actuator.cpp
+                libs/you_bot_lib/platform/platform.cpp
                 )
 
 target_link_libraries(You_bot Threads::Threads)

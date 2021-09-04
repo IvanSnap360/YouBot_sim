@@ -28,8 +28,22 @@ private:
     void calc_FK();
     void calc_Odom();
 
+    double vx = 0.0;
+    double vy = 0.0;
+    double vz = 0.0;
+
+    double r  = 0.0;
+    double lx = 0.0;
+    double ly = 0.0;
+
+    double w1 = 0.0;
+    double w2 = 0.0;
+    double w3 = 0.0;
+    double w4 = 0.0;
+
 public:
-    PLATFORM(int clinet_id);
+    PLATFORM();
+    void init(int clinet_id);
     void trigger();
 
     velocity_msg targer_velocity;
