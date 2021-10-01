@@ -16,6 +16,7 @@ public:
     void setAngularVelocity(double angular_velocity);
     double getAngularVelocity();
 
+
     ~ACTUATOR();
 private:
     const double pi = 3.14159265359;

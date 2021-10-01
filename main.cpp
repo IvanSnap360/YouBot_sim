@@ -23,14 +23,41 @@ using namespace std::chrono;
 
 int clientID;
 YOU_BOT kbot;
+
+pose goal[6];
+int goal_index = 0;
 void setup()
 {
-    
+    // kbot.platform.targer_velocity.linear.x = -0.005;
+    // kbot.platform.targer_velocity.linear.y = 0.005;
+    // kbot.platform.targer_velocity.angular.z = 0.01;
+    goal[0].position.x = 0.5;
+    goal[0].position.y = 0.5;
+
+    goal[1].position.x = 0.5;
+    goal[1].position.y = -0.5;
+
+    goal[2].position.x = -0.5;
+    goal[2].position.y = -0.5;
+
+    goal[3].position.x = -0.5;
+    goal[3].position.y = 0.5;
+
+    goal[4].position.x = 0.5;
+    goal[4].position.y = 0.5;
+
+    goal[5].position.x = 0.0;
+    goal[5].position.y = 0.0;
 }
 
 void loop()
-{   
-    kbot.platform.trigger();
+{
+    // println(kbot.platform.odom.position.x << "  " << kbot.platform.odom.position.y << "   " << kbot.platform.odom.orientation.z);
+    // println(kbot.platform.imu_gyro.z);
+    kbot.platform.goal.position.x = 0.05;
+    
+    kbot.platform.go_trigger();
+    kbot.platform.trigger(real_time_ms);
 }
 
 //#################################################################################################################
@@ -49,7 +76,7 @@ int main()
     println("########## CONNECTING TO SIMULATOR ##########");
 
     int clientID = simxStart(
-        (simxChar *)SIM_IP_ADDRESS, 
+        (simxChar *)SIM_IP_ADDRESS,
         SIM_PORT,
         SIM_waitUntilConnected,
         SIM_doNotReconnectOnceDisconnected,
@@ -84,5 +111,4 @@ int main()
     XCloseDisplay(dpy);
     simxFinish(clientID);
     return 0;
-    
 }

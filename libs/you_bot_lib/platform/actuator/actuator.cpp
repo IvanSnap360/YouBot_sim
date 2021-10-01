@@ -18,11 +18,11 @@ void ACTUATOR::init(const char * sim_name, int clientID)
 
 void ACTUATOR::setAngularVelocity(double angular_velocity)
 {
-    simxSetJointTargetVelocity(_clientID,_handle,angular_velocity* 180.0 / pi,simx_opmode_oneshot);
+    simxSetJointTargetVelocity(_clientID,_handle,(angular_velocity * 180.0 / pi),simx_opmode_oneshot);
 }
 
 double ACTUATOR::getAngularVelocity()
 {
-    simxGetObjectFloatParameter(_clientID,_handle,2012,&_curr_vel,simx_opmode_buffer);
-    return _curr_vel * (pi / 180.0);
+    simxGetObjectFloatParameter(_clientID,_handle,2012,&_curr_vel,simx_opmode_streaming);
+    return (_curr_vel * (pi / 180.0));
 }
